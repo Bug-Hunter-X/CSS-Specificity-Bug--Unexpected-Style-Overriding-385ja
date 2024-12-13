@@ -1,0 +1,25 @@
+The CSS specificity rules can lead to unexpected results if not carefully managed.  For example, consider the following scenario:
+
+```css
+div {
+  color: blue;
+}
+
+.myClass {
+  color: red;
+}
+
+#myId {
+  color: green;
+}
+
+#myId.myClass {
+  color: purple;
+}
+
+#myId.myClass div {
+  color: yellow; /* This will be the final color */
+}
+```
+
+In this example, the `#myId.myClass div` selector is highly specific. Even if an element has classes and an ID, and is nested within a `div`, the most specific selector wins. This behavior is often unexpected, especially when dealing with complex CSS structures and inherited styles.
